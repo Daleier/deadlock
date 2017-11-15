@@ -17,15 +17,24 @@ public class Cars {
 	}
     
 	public int getNumber() {
-    	return number;
-	}
-    
-	public synchronized void waiting(Cars t) {
-    	System.out.format("Car " + number + " is waiting for Car " + t.getNumber() + "\n");
-    	t.lane(this);
-	}
+        return number;
+    }
+
+    public void waiting(Cars t) {
+        if (this.number == 1) {
+            synchronized (this) {
+                System.out.format("29BPDJ - Car " + number + " is waiting for Car " + t.getNumber() + "\n");
+            }
+            t.lane(this);
+        } else {
+            synchronized (this) {
+                System.out.format("29BPDJ - Car " + number + " is waiting for Car " + t.getNumber() + "\n");
+                t.lane(this);
+            }
+        }
+    }
     
 	public synchronized void lane(Cars t) {
-    	System.out.format("Car " + t.getNumber() + " is NOT waiting for " + number  + " anymore\n");
+    	System.out.format("29BPDJ - Car " + t.getNumber() + " is NOT waiting for " + number  + " anymore\n");
 	}
 }

@@ -26,12 +26,11 @@ public class Deadlock {
           // run.  Threads and deadlock are asynchronous things, but we're
           // trying to force deadlock to happen here...
           try { Thread.sleep(50); } catch (InterruptedException e) {}
-          
+        }
           // Now wait 'till we can get a lock on resource 2
           synchronized(resource2) {
             System.out.println("29BPDJ - Thread 1: locked resource 2");
           }
-        }
       }
     };
     
