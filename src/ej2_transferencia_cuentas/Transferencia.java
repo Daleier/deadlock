@@ -1,0 +1,28 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ej2_transferencia_cuentas;
+
+/**
+ *
+ * @author dam203
+ */
+public class Transferencia implements Runnable {
+    Cuenta c1, c2;
+
+    Transferencia(Cuenta c1, Cuenta c2) {
+        this.c1 = c1;
+        this.c2 = c2;
+    }
+
+    @Override
+    public void run() {
+        for (int i = 0; i < 1000000; i++) {
+            c1.transfer(c1,c2,1);
+        }
+    }
+    
+    
+}
